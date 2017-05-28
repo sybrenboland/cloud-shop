@@ -1,0 +1,9 @@
+inventory-service:
+  image: sboland/inventory-service
+  ports:
+     - 8080:8080
+
+shopping-cart-service:
+  image: sboland/basket-service
+  ports:
+    - 8081:8080
