@@ -19,6 +19,7 @@
     <modules>
         <module>basket-service</module>
         <module>inventory-service</module>
+        <module>edge-service</module>
     </modules>
 
     <properties>

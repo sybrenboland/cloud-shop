@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: development
+---
+spring:
+  profiles: development
+  application:
+    name: edge-service
+zuul:
+  ignored-services: '*'
+  ignoredPatterns: /**/api/**
+  routes:
+    inventory-service: /inventory/**
+    basket-service: /basket/**
+
