@@ -17,6 +17,7 @@
     </parent>
 
     <modules>
+        <module>basket-service</module>
         <module>inventory-service</module>
     </modules>
 
