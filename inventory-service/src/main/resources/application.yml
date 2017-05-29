@@ -1,9 +1,4 @@
 
-zuul:
-  ignored-services: '*'
-  routes:
-    inventory-service: /inventory/**
-    basket-service: /basket/**
 eureka:
   instance:
     prefer-ip-address: true
@@ -12,5 +7,3 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://discovery-service:8761/eureka/
-
-

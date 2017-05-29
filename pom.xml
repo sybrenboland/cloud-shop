@@ -20,6 +20,7 @@
         <module>basket-service</module>
         <module>inventory-service</module>
         <module>edge-service</module>
+        <module>discovery-service</module>
     </modules>
 
     <properties>
