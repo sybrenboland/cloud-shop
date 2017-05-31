@@ -20,7 +20,7 @@ cache:
   - "$HOME/.m2"
 
 script:
-- mvn clean install
+- mvn clean install -DpushImage
 
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
