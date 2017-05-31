@@ -24,3 +24,4 @@ script:
 after_success:
   - docker login  -u $DOCKER_USER -p $DOCKER_PASS
   - docker push ${DOCKER_USER}/basket-service
+  - docker push ${DOCKER_USER}/edge-service
