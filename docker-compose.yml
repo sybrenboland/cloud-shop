@@ -1,20 +1,20 @@
 discovery-service:
-  image: sboland/discovery-service
+  image: shboland/discovery-service
   ports:
    - 8761:8761
 
 inventory-service:
-  image: sboland/inventory-service
+  image: shboland/inventory-service
   links:
     - discovery-service
 
 shopping-cart-service:
-  image: sboland/basket-service
+  image: shboland/basket-service
   links:
     - discovery-service
 
 edge-service:
-  image: sboland/edge-service
+  image: shboland/edge-service
   ports:
     - 9000:9000
   links:
