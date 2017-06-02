@@ -12,6 +12,12 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
+before_script:
+  - docker-compose up
+
 script:
     - docker version
     - docker-compose version
+
+after_script:
+  - docker-compose down
