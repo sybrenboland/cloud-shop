@@ -8,7 +8,7 @@ inventory-service:
   links:
     - discovery-service
 
-shopping-cart-service:
+basket-service:
   image: shboland/basket-service
   links:
     - discovery-service
