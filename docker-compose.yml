@@ -5,11 +5,15 @@ discovery-service:
 
 inventory-service:
   image: shboland/inventory-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=production
   links:
     - discovery-service
 
 basket-service:
   image: shboland/basket-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=production
   links:
     - discovery-service
 
