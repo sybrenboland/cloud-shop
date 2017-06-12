@@ -1,11 +1,11 @@
 discovery-service:
-  image: shboland/discovery-service
+  image: shboland/discovery-service:1.0.0
   restart: always
   ports:
    - 8761:8761
 
 inventory-service:
-  image: shboland/inventory-service
+  image: shboland/inventory-service:1.0.0
   restart: always
   environment:
    - SPRING_PROFILES_ACTIVE=production
@@ -13,7 +13,7 @@ inventory-service:
     - discovery-service
 
 basket-service:
-  image: shboland/basket-service
+  image: shboland/basket-service:1.0.0
   restart: always
   environment:
    - SPRING_PROFILES_ACTIVE=production
@@ -21,7 +21,7 @@ basket-service:
     - discovery-service
 
 edge-service:
-  image: shboland/edge-service
+  image: shboland/edge-service:1.0.0
   restart: always
   ports:
     - 9000:9000
