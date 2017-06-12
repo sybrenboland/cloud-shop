@@ -13,7 +13,8 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - sh ./run.sh
+  - docker-compose up -d
+  - sh ./check.sh
 
 after_script:
   - docker-compose down
