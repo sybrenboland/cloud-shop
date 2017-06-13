@@ -3,8 +3,16 @@ sudo: required
 services:
   - docker
 
+language: java
+jdk:
+- oraclejdk8
+
 env:
   DOCKER_COMPOSE_VERSION: 1.4.2
+
+cache:
+  directories:
+  - "$HOME/.m2"
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -15,6 +23,7 @@ before_install:
 script:
   - docker-compose up -d
   - sh ./check.sh
+  - mvn clean install
 
 after_script:
   - docker-compose down
