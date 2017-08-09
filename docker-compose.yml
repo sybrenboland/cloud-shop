@@ -10,6 +10,7 @@ inventory-service:
   environment:
    - SPRING_PROFILES_ACTIVE=production
   links:
+    - mysql
     - discovery-service
 
 basket-service:
@@ -18,6 +19,7 @@ basket-service:
   environment:
    - SPRING_PROFILES_ACTIVE=production
   links:
+    - mysql
     - discovery-service
 
 edge-service:
@@ -27,3 +29,11 @@ edge-service:
     - 9000:9000
   links:
     - discovery-service
+
+mysql:
+  image: mysql:5.7
+  ports:
+   - 3306:3306
+  environment:
+   - MYSQL_ROOT_PASSWORD=dbpass
+   - MYSQL_DATABASE=dev
