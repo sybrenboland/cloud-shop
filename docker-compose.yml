@@ -4,26 +4,46 @@ discovery-service:
   ports:
    - 8761:8761
 
-inventory-service:
-  image: shboland/inventory-service:1.0.0
-  restart: always
-  environment:
-   - SPRING_PROFILES_ACTIVE=production
-  links:
-    - discovery-service
-
-basket-service:
-  image: shboland/basket-service:1.0.0
-  restart: always
-  environment:
-   - SPRING_PROFILES_ACTIVE=production
-  links:
-    - discovery-service
-
 edge-service:
   image: shboland/edge-service:1.0.0
   restart: always
+  environment:
+    - SPRING_PROFILES_ACTIVE=production
   ports:
     - 9000:9000
   links:
     - discovery-service
+    
+basket-service:
+  image: shboland/basket-service:1.0.0
+  restart: always
+  environment:
+    - SPRING_PROFILES_ACTIVE=production
+  links:
+    - discovery-service
+    - mysql:mysql
+
+mysql:
+  image: mysql:5.7
+  ports:
+   - 3381:3306
+  environment:
+   - MYSQL_ROOT_PASSWORD=dbpass
+   - MYSQL_DATABASE=basketDB
+
+inventory-service:
+  image: shboland/inventory-service:1.0.0
+  restart: always
+  environment:
+    - SPRING_PROFILES_ACTIVE=production
+  links:
+    - discovery-service
+    - postgres:postgres
+    
+postgres:
+  image: postgres:9.6.3
+  ports:
+    - 5482:5432
+  environment:
+    POSTGRES_USER: pgroot
+    POSTGRES_PASSWORD: dbpass
